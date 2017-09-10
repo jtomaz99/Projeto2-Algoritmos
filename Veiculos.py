@@ -1,11 +1,16 @@
 from Veiculo import *
 # essa classe é um Banco de Dados
-
+'''
+A classe Veiculos é a classe criadora do Banco De Dados e onde a maioria das operações do BD são feitas
+'''
 class Veiculos:
     def __init__(self):
         self.BancoDeDados = []
     
-
+    '''
+    No metodo procurar se percorre todo o BD em busca do RENAVAM, chassi ou da placa, para achar o veiculo desejado
+    e depois é mostrado na tela ele.
+    '''
     def procurar(self,elemento):
         i = 0 
         total = len(self.BancoDeDados)
@@ -25,8 +30,10 @@ class Veiculos:
             i += 1
             total -= 1
         return 'Veiculo não existe no Banco De Dados, ou seu criterio de busca foi invalido'        
-    # procurar errrooooooo
-    #retorna um lista com o veiculos
+    '''
+    No metodo buscar, é procurado todos os veiculos de um certo tipo que estão disponiveis para aluguel
+    e é mostrado na tela uma lista com todos eles
+    '''
     def buscar(self,tipo):
         tipo = tipo.lower()
         i = 0
@@ -59,7 +66,10 @@ class Veiculos:
         
         return lista 
 
-
+    '''
+    O metodo adicionar chama a classe baseada no tipo de veiculo fornecido, e adiciona as informações
+    para assim poder criar o objeto e adicionar ao Banco De Dados.
+    '''
     def adicionar(self, tipo, fabricante, modelo, capacidade, autonomia, ano, placa, RENAVAM, chassi, reservado):
         # colocar self.criterio e adicionar os selfs
         
@@ -73,7 +83,10 @@ class Veiculos:
         
 
            
-    # Mudar os lens daqui, por causa tem tipo dentro também
+    '''
+    No metodo veicuDisponivel ele mostra ao usuario a quantidade de veiculos que estão a disposição para aluguel
+    dependendo do tipo de veiculo que seja fornecido.
+    '''
     def veicuDisponivel(self,tipo):
         tipo = tipo.lower()
         cont = 0
@@ -88,7 +101,9 @@ class Veiculos:
         return cont 
 
 
-
+    '''
+    O metodo cancelar reserva usa o metodo setReservado da Classe Veiculo, para poder alterar o status de reserva de um veiculo. 
+    '''
     def cancelReserva(self,placa):
         tamanho = len(self.BancoDeDados)
         i = 0
